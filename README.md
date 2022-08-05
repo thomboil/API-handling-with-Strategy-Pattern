@@ -9,7 +9,7 @@ The app needs to perform the same actions for e-comm websites depending on which
 The easy and wrong way to do it is to create an endpoint for each request: GetProductsShopify, GetProductsLightspeed. This doesn't follow clean code principles and doesn't reduce code duplication. We want our code to dynmically decide which type of request is suited for our user.
 
 ## Strategy
-1. Let's use Oriented Object Programming to filter the request types
+### 1. Let's use Oriented Object Programming to filter the request types.
 
 - Create abstract ShopAPI class
 - Create child classes that derive from ShopAPI: ShopifyAPI, LightspeedAPI, etc.
@@ -18,3 +18,20 @@ The easy and wrong way to do it is to create an endpoint for each request: GetPr
 
 ![image](https://user-images.githubusercontent.com/36003383/183122928-06cc8717-97f5-4a73-8381-5c3800f03c14.png)
 
+Now you can store the different shop types under a Shop array.
+
+Depending on which Shop type is currently selected, it will call the right HTTP request in the overriden method.
+
+![image](https://user-images.githubusercontent.com/36003383/183126329-ddf7ef72-6506-45e1-a110-dec68af1639a.png)
+
+![image](https://user-images.githubusercontent.com/36003383/183126488-db00ff3e-0d9b-47fd-8e71-3c3e25edc625.png)
+
+### 2. Seperate routes into different files to make things cleaner on the server side.
+
+Create a `routes` folder and add a javascript file for each E-comm API: `routes/Shopify.js`, `routes/Lightspeed.js`, etc.
+```javascript
+const shopifyRoute = require("./routes/Shopify");
+const lightspeedRoute = require("./routes/lightspeed");
+
+app.use('/shopify', shopifyRoute);
+app.use('/lightspeed', lightspeedRoute);
