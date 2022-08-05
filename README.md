@@ -15,3 +15,6 @@ The easy and wrong way to do it is to create an endpoint for each request: GetPr
 - Create child classes that derive from ShopAPI: ShopifyAPI, LightspeedAPI, etc.
 - Add fields and methods. Make sure the childs override the methods with the right HTTP request.
 - Spread your routes to make it cleaner later in the server. `/shopifyAPI/getProducts` and `/lightspeedAPI/getProducts`
+
+![image](https://user-images.githubusercontent.com/36003383/183122928-06cc8717-97f5-4a73-8381-5c3800f03c14.png)
+
