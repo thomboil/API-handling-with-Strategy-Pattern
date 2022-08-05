@@ -1,5 +1,5 @@
 # Handling multiple API calls with Strategy Pattern
-Use Strategy Deisgn Pattern to call the right http request depending on what type of E-com store the user is connected to (Shopify, Lightspeed, etc.).
+Use Strategy Deisgn Pattern to call the right API depending on what type of E-com store the user is connected to (Shopify, Lightspeed, etc.).
 
 ## Challenge
 The app needs to perform the same actions for e-comm websites depending on which type of E-comm the user is using. For exemple, a user must be able to view his products whether his shop is with Shopify or Lightspeed. Considering the user can be connected to multiple shops, all from different e-comm sources, how can the user's action call the right HTTP request to the right API?
